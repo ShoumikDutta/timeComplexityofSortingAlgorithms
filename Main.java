@@ -3,7 +3,7 @@ public class Main {
 
     public static void main(String[] args) {
         int[] N = { 1000,2000,4000,8000,16000 }; // Different sizes of arrays to test
-        int[] K= {5, 4, 3, 2, 1, 0};
+        int[] K= {1000,2000,4000,8000,16000};
         for (int i = 0; i < N.length; i++) {
             int[] array = constructArray(N[i],K[i]); // Generate random array of given size
             Stopwatch stopwatch = new Stopwatch();
@@ -21,7 +21,12 @@ public class Main {
     // Generate a random integer array of given size
     public static int[] constructArray(int N, int K) {
         int[] array = new int[N];
-        //need to handel K>n and k=n
+
+        if(N < K)
+        {
+            System.exit(-1);
+        }
+
         // Initialize variables
         int in = 0;
         int out = 0;
